@@ -37,6 +37,12 @@ section:nth-child(even) {
   background-color: #111827 !important;
 }
 
+/* ── Navbar top offset ────────────────────────────────────── */
+main > div:first-child,
+.section-shaped {
+  padding-top: 64px !important;
+}
+
 /* ── Navbar ───────────────────────────────────────────────── */
 .navbar-main,
 .navbar-main.headroom,

@@ -1,140 +1,125 @@
 import React, { useState, useEffect } from "react";
-import { greetings, socialLinks } from "../portfolio";
-import Headroom from "headroom.js";
 import Image from "next/image";
-import { UncontrolledCollapse, NavbarBrand, Navbar, NavItem, NavLink, Nav, Container, Row, Col } from "reactstrap";
+import { greetings, socialLinks } from "../portfolio";
 
 const Navigation = () => {
-  const [collapseClasses, setCollapseClasses] = useState("");
-  const onExiting = () => setCollapseClasses("collapsing-out");
-
-  const onExited = () => setCollapseClasses("");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    let headroom = new Headroom(document.getElementById("navbar-main")!);
-    // initialise
-    headroom.init();
-  });
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const navStyle: React.CSSProperties = {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1000,
+    background: scrolled ? "#0A0E1A" : "rgba(10,14,26,0.92)",
+    borderBottom: scrolled ? "1px solid #1E293B" : "1px solid transparent",
+    backdropFilter: "blur(10px)",
+    transition: "all 0.3s ease",
+  };
+
+  const links = [
+    socialLinks.github && { icon: "fa-github", label: "GitHub", href: socialLinks.github },
+    socialLinks.email && { icon: "fa-envelope", label: "Email", href: socialLinks.email },
+    socialLinks.linkedin && { icon: "fa-linkedin", label: "LinkedIn", href: socialLinks.linkedin },
+    socialLinks.instagram && { icon: "fa-instagram", label: "Instagram", href: socialLinks.instagram },
+    socialLinks.twitter && { icon: "fa-twitter", label: "Twitter", href: socialLinks.twitter },
+  ].filter(Boolean) as { icon: string; label: string; href: string }[];
 
   return (
-    <>
-      <header className="header-global">
-        <Navbar className="navbar-main headroom" expand="lg" id="navbar-main" style={{ background: "#0A0E1A", borderBottom: "1px solid #1E293B" }}>
-          <Container>
-            <NavbarBrand href="/" className="mr-lg-5" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <Image
-                src="/img/icons/common/photo_2026-03-26_15-19-18.jpg"
-                alt="Iconedge Technologies"
-                width={40}
-                height={40}
-                style={{ borderRadius: "50%", objectFit: "cover" }}
-              />
-              <h2 className="text-white mb-0" id="nav-title" style={{ fontSize: "clamp(0.75rem, 2.5vw, 1.1rem)", whiteSpace: "nowrap" }}>
-                {greetings.name}
-              </h2>
-            </NavbarBrand>
-            <button className="navbar-toggler" aria-label="navbar_toggle" id="navbar_global">
-              <span className="navbar-toggler-icon" />
-            </button>
-            <UncontrolledCollapse
-              toggler="#navbar_global"
-              navbar
-              className={collapseClasses}
-              onExiting={onExiting}
-              onExited={onExited}
+    <nav style={navStyle}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
+
+        {/* Brand */}
+        <a href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+          <Image
+            src="/img/icons/common/photo_2026-03-26_15-19-18.jpg"
+            alt="Iconedge Technologies"
+            width={38}
+            height={38}
+            style={{ borderRadius: "50%", objectFit: "cover" }}
+          />
+          <span style={{ color: "#F1F5F9", fontWeight: 700, fontSize: "clamp(0.85rem, 2vw, 1rem)", whiteSpace: "nowrap" }}>
+            {greetings.name}
+          </span>
+        </a>
+
+        {/* Desktop links */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }} className="nav-desktop-links">
+          {links.map(link => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={link.label}
+              style={{ color: "#94A3B8", fontSize: "1.2rem", padding: "8px", borderRadius: "8px", transition: "color 0.2s, background 0.2s", textDecoration: "none" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#6366F1"; (e.currentTarget as HTMLAnchorElement).style.background = "#1E293B"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#94A3B8"; (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}
             >
-              <div className="navbar-collapse-header" style={{ background: "#0A0E1A" }}>
-                <Row>
-                  <Col className="collapse-brand" xs="6">
-                    <h3 style={{ color: "#F1F5F9" }} id="nav-title">
-                      {greetings.name}
-                    </h3>
-                  </Col>
-                  <Col className="collapse-close" xs="6">
-                    <button className="navbar-toggler" id="navbar_global">
-                      <span />
-                      <span />
-                    </button>
-                  </Col>
-                </Row>
-              </div>
-              <Nav className="align-items-lg-center ml-lg-auto" navbar>
-                {socialLinks.facebook && (
-                  <NavItem>
-                    <NavLink
-                      rel="noopener"
-                      aria-label="Facebook"
-                      className="nav-link-icon"
-                      href={socialLinks.facebook}
-                      target="_blank"
-                    >
-                      <i className="fa fa-facebook-square" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">Facebook</span>
-                    </NavLink>
-                  </NavItem>
-                )}
-                {socialLinks.instagram && (
-                  <NavItem>
-                    <NavLink
-                      rel="noopener"
-                      aria-label="Instagram"
-                      className="nav-link-icon"
-                      href={socialLinks.instagram}
-                      target="_blank"
-                    >
-                      <i className="fa fa-instagram" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">Instagram</span>
-                    </NavLink>
-                  </NavItem>
-                )}
-                {socialLinks.github && (
-                  <NavItem>
-                    <NavLink
-                      rel="noopener"
-                      aria-label="Github"
-                      className="nav-link-icon"
-                      href={socialLinks.github}
-                      target="_blank"
-                    >
-                      <i className="fa fa-github" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">Github</span>
-                    </NavLink>
-                  </NavItem>
-                )}
-                {socialLinks.linkedin && (
-                  <NavItem>
-                    <NavLink
-                      rel="noopener"
-                      aria-label="Linkedin"
-                      className="nav-link-icon"
-                      href={socialLinks.linkedin}
-                      target="_blank"
-                    >
-                      <i className="fa fa-linkedin" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">Linkedin</span>
-                    </NavLink>
-                  </NavItem>
-                )}
-                {socialLinks.twitter && (
-                  <NavItem>
-                    <NavLink
-                      rel="noopener"
-                      aria-label="Twitter"
-                      className="nav-link-icon"
-                      href={socialLinks.twitter}
-                      target="_blank"
-                    >
-                      <i className="fa fa-twitter-square" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">Twitter</span>
-                    </NavLink>
-                  </NavItem>
-                )}
-              </Nav>
-            </UncontrolledCollapse>
-          </Container>
-        </Navbar>
-      </header>
-    </>
+              <i className={`fa ${link.icon}`} />
+            </a>
+          ))}
+        </div>
+
+        {/* Hamburger */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="nav-hamburger"
+          style={{ background: "none", border: "none", cursor: "pointer", padding: "8px", display: "none", flexDirection: "column", gap: "5px" }}
+          aria-label="Toggle menu"
+        >
+          <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#6366F1" : "#F1F5F9", transition: "all 0.3s", transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none" }} />
+          <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#6366F1" : "#F1F5F9", transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
+          <span style={{ display: "block", width: "24px", height: "2px", background: menuOpen ? "#6366F1" : "#F1F5F9", transition: "all 0.3s", transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none" }} />
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div style={{
+        background: "#111827",
+        borderTop: "1px solid #1E293B",
+        overflow: "hidden",
+        maxHeight: menuOpen ? "300px" : "0",
+        transition: "max-height 0.35s ease",
+      }}
+        className="nav-mobile-menu"
+      >
+        <div style={{ padding: "16px 24px", display: "flex", flexDirection: "column", gap: "4px" }}>
+          {links.map(link => (
+            <a
+              key={link.label}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMenuOpen(false)}
+              style={{ display: "flex", alignItems: "center", gap: "12px", color: "#94A3B8", padding: "12px 16px", borderRadius: "8px", textDecoration: "none", fontSize: "0.95rem", transition: "all 0.2s" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#F1F5F9"; (e.currentTarget as HTMLAnchorElement).style.background = "#1E293B"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "#94A3B8"; (e.currentTarget as HTMLAnchorElement).style.background = "transparent"; }}
+            >
+              <i className={`fa ${link.icon}`} style={{ width: "20px", textAlign: "center", color: "#6366F1" }} />
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .nav-desktop-links { display: none !important; }
+          .nav-hamburger { display: flex !important; }
+        }
+        @media (min-width: 769px) {
+          .nav-mobile-menu { display: none !important; }
+        }
+      `}</style>
+    </nav>
   );
 };
 
