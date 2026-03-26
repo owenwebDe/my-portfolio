@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { greetings } from "../portfolio";
 import { Button, Container, Row, Col } from "reactstrap";
-import GreetingLottie from "../components/DisplayLottie";
 import SocialLinks from "../components/SocialLinks";
+import Image from "next/image";
 
 const Greetings = () => {
   useEffect(() => {
@@ -32,23 +32,44 @@ const Greetings = () => {
                   <h1 className="display-3 text-white">{greetings.title + " "}</h1>
                   <p className="lead text-white">{greetings.description}</p>
                   <SocialLinks />
-                  {greetings.resumeLink && (
-                    <div className="btn-wrapper my-4">
+                  <div className="btn-wrapper my-4" style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                    {greetings.resumeLink && (
                       <Button
-                        className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
+                        className="btn-white btn-icon mb-3 mb-sm-0"
                         color="default"
                         href={greetings.resumeLink}
+                        target="_blank"
+                        rel="noopener"
                       >
                         <span className="btn-inner--icon mr-1">
                           <i className="fa fa-file" />
                         </span>
-                        <span className="btn-inner--text">See My Resume</span>
+                        <span className="btn-inner--text">My Resume</span>
                       </Button>
-                    </div>
-                  )}
+                    )}
+                    <Button
+                      className="btn-icon mb-3 mb-sm-0 btn-whatsapp"
+                      href="https://wa.me/2348119503680"
+                      target="_blank"
+                      rel="noopener"
+                      style={{ background: "#25D366", borderColor: "#25D366", color: "#fff" }}
+                    >
+                      <span className="btn-inner--icon mr-1">
+                        <i className="fa fa-whatsapp" />
+                      </span>
+                      <span className="btn-inner--text">Hire Me on WhatsApp</span>
+                    </Button>
+                  </div>
                 </Col>
-                <Col lg="6">
-                  <GreetingLottie animationPath="/lottie/coding.json" />
+                <Col lg="6" className="d-flex align-items-center justify-content-center">
+                  <Image
+                    src="/img/my-picture-r.png"
+                    alt="Michael Adeshina Martins"
+                    width={300}
+                    height={300}
+                    className="hero-profile-img"
+                    style={{ width: "100%", maxWidth: "300px", height: "300px", objectFit: "cover", objectPosition: "top" }}
+                  />
                 </Col>
               </Row>
             </div>

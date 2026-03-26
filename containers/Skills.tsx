@@ -3,6 +3,7 @@ import React, { Fragment } from "react";
 import Fade from "react-reveal/Fade";
 import { Col, Container, Row, UncontrolledTooltip } from "reactstrap";
 import DisplayLottie from "../components/DisplayLottie";
+import Image from "next/image";
 import { skillsSection } from "../portfolio";
 
 const Skills = () => {
@@ -16,7 +17,17 @@ const Skills = () => {
             return (
               <Row className="my-5" key={index}>
                 <Col lg="6" className="order-2 order-lg-1">
-                  <DisplayLottie animationPath={section.lottieAnimationFile} />
+                  {/\.(png|jpe?g|gif|svg|webp)$/i.test(section.lottieAnimationFile) ? (
+                    <Image
+                      src={section.lottieAnimationFile}
+                      alt={section.title}
+                      width={300}
+                      height={300}
+                      style={{ width: "100%", maxWidth: "300px", height: "300px", objectFit: "cover", objectPosition: "top" }}
+                    />
+                  ) : (
+                    <DisplayLottie animationPath={section.lottieAnimationFile} />
+                  )}
                 </Col>
                 <Col lg="6" className="order-1 order-lg-2">
                   <h3 className="h3 mb-2">{section.title}</h3>
@@ -26,11 +37,11 @@ const Skills = () => {
                         <Fragment key={i}>
                           <div
                             className="icon icon-lg icon-shape shadow-sm rounded-circle m-1"
-                            id={skill.skillName.replace(/\s/g, "")}
+                            id={skill.skillName.replace(/[^a-zA-Z0-9]/g, "")}
                           >
                             <Icon icon={skill.iconifyTag} data-inline="false"></Icon>
                           </div>
-                          <UncontrolledTooltip delay={0} placement="bottom" target={skill.skillName.replace(/\s/g, "")}>
+                          <UncontrolledTooltip delay={0} placement="bottom" target={skill.skillName.replace(/[^a-zA-Z0-9]/g, "")}>
                             {skill.skillName}
                           </UncontrolledTooltip>
                         </Fragment>

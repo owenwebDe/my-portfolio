@@ -2,7 +2,6 @@ import emoji from "react-easy-emoji";
 import {
   EducationType,
   ExperienceType,
-  FeedbackType,
   ProjectType,
   SkillsSectionType,
   SkillBarsType,
@@ -12,76 +11,134 @@ import {
 } from "./types/sections";
 
 export const greetings: GreetingsType = {
-  name: "Hanzla Tauqeer",
-  title: "Hi all, I'm Hanzla",
+  name: "Michael Adeshina Martins",
+  title: "Hi, I'm Michael",
   description:
-    "I'm a passionate Full Stack web developer with experience developing Full Stack web applications with Python, Django, React.js, and Cloud Technologies. I am strongly interested in learning new technologies and implementing them in my projects. I'm a self-motivated and hardworking individual who is always ready to learn new things and work in a team.",
-  resumeLink: "#",
+    "I'm a passionate Backend, Frontend & Blockchain Developer with strong experience building web and mobile applications using JavaScript, TypeScript, React.js, and React Native. I develop cross-platform mobile apps for Android and iOS, build scalable REST APIs, and create decentralized applications on the blockchain. I love turning ideas into clean, functional products and I'm always exploring new technologies to stay ahead.",
+  resumeLink: "/CV-Michael-Martins.pdf",
 };
 
 export const openSource = {
-  githubUserName: "1hanzla100",
+  githubUserName: "owenwebDe",
 };
 
 export const contact = {};
 
 export const socialLinks: SocialLinksType = {
-  email: "mailto:hanzla.tauqeer123@gmail.com",
-  linkedin: "https://www.linkedin.com/in/1hanzla100/",
-  github: "https://github.com/1hanzla100",
-  instagram: "https://www.instagram.com/__hanzla100",
-  // facebook: 'https://www.facebook.com/1hanzla100',
-  // twitter: 'https://twitter.com/1hanzla100',
+  email: "mailto:Iconmikky112@gmail.com",
+  github: "https://github.com/owenwebDe",
 };
 
 export const skillsSection: SkillsSectionType = {
   title: "What I do",
-  subTitle: "CRAZY FULL STACK DEVELOPER WHO WANTS TO EXPLORE EVERY TECH STACK",
+  subTitle: "BACKEND · FRONTEND · BLOCKCHAIN DEVELOPER WHO BUILDS ACROSS THE FULL STACK",
   data: [
     {
-      title: "Full Stack Development",
-      lottieAnimationFile: "/lottie/skills/fullstack.json", // Path of Lottie Animation JSON File
+      title: "Frontend & Mobile Development",
+      lottieAnimationFile: "/img/about-me.png",
       skills: [
-        emoji("⚡ Building responsive Single-Page-Apps (SPA) & PWA in React.js"),
-        emoji("⚡ Building responsive static websites using Next.js"),
-        emoji("⚡ Building RESTful APIs in Django & Django REST Framework"),
+        emoji("⚡ Building responsive web apps with React.js & TypeScript"),
+        emoji("⚡ Building cross-platform mobile apps for Android & iOS with React Native"),
+        emoji("⚡ Integrating third-party and REST APIs into web and mobile apps"),
       ],
       softwareSkills: [
-        {
-          skillName: "Python",
-          iconifyTag: "logos:python",
-        },
-        {
-          skillName: "Django",
-          iconifyTag: "vscode-icons:file-type-django",
-        },
         {
           skillName: "JavaScript",
           iconifyTag: "logos:javascript",
         },
         {
-          skillName: "Reactjs",
+          skillName: "TypeScript",
+          iconifyTag: "logos:typescript-icon",
+        },
+        {
+          skillName: "React.js",
           iconifyTag: "vscode-icons:file-type-reactjs",
         },
         {
-          skillName: "Nextjs",
-          iconifyTag: "vscode-icons:file-type-light-next",
+          skillName: "React Native",
+          iconifyTag: "tabler:brand-react-native",
         },
         {
-          skillName: "AWS",
-          iconifyTag: "logos:aws",
+          skillName: "Android",
+          iconifyTag: "logos:android-icon",
         },
         {
-          skillName: "Heroku",
-          iconifyTag: "logos:heroku-icon",
+          skillName: "iOS",
+          iconifyTag: "logos:apple",
         },
         {
           skillName: "Github",
           iconifyTag: "akar-icons:github-fill",
         },
+      ],
+    },
+    {
+      title: "Backend & API Development",
+      lottieAnimationFile: "/img/sec.png",
+      skills: [
+        emoji("⚡ Building scalable REST APIs and server-side applications"),
+        emoji("⚡ Integrating and consuming multiple third-party APIs"),
+        emoji("⚡ Working with databases and cloud deployment"),
+      ],
+      softwareSkills: [
+        {
+          skillName: "Node.js",
+          iconifyTag: "logos:nodejs-icon",
+        },
+        {
+          skillName: "TypeScript",
+          iconifyTag: "logos:typescript-icon",
+        },
+        {
+          skillName: "PostgreSQL",
+          iconifyTag: "logos:postgresql",
+        },
+        {
+          skillName: "MongoDB",
+          iconifyTag: "vscode-icons:file-type-mongo",
+        },
+        {
+          skillName: "REST API",
+          iconifyTag: "mdi:api",
+        },
         {
           skillName: "Docker",
           iconifyTag: "logos:docker-icon",
+        },
+        {
+          skillName: "Github",
+          iconifyTag: "akar-icons:github-fill",
+        },
+      ],
+    },
+    {
+      title: "Blockchain Development",
+      lottieAnimationFile: "/lottie/skills/ethereum.json",
+      skills: [
+        emoji("⚡ Developing and deploying smart contracts"),
+        emoji("⚡ Building decentralized applications (dApps)"),
+        emoji("⚡ Integrating blockchain wallets and Web3 APIs"),
+      ],
+      softwareSkills: [
+        {
+          skillName: "Ethereum",
+          iconifyTag: "logos:ethereum",
+        },
+        {
+          skillName: "Solidity",
+          iconifyTag: "logos:solidity",
+        },
+        {
+          skillName: "Web3.js",
+          iconifyTag: "logos:web3js",
+        },
+        {
+          skillName: "MetaMask",
+          iconifyTag: "logos:metamask-icon",
+        },
+        {
+          skillName: "Hardhat",
+          iconifyTag: "logos:hardhat-icon",
         },
       ],
     },
@@ -90,124 +147,153 @@ export const skillsSection: SkillsSectionType = {
 
 export const SkillBars: SkillBarsType[] = [
   {
-    Stack: "Frontend/Design", //Insert stack or technology you have experience in
-    progressPercentage: "85", //Insert relative proficiency in percentage
+    Stack: "Frontend (React.js / React Native)",
+    progressPercentage: "85",
   },
   {
-    Stack: "Backend",
+    Stack: "Backend & API Development",
     progressPercentage: "90",
   },
   {
-    Stack: "Programming",
-    progressPercentage: "95",
+    Stack: "Blockchain & Smart Contracts",
+    progressPercentage: "75",
+  },
+  {
+    Stack: "Mobile (Android & iOS)",
+    progressPercentage: "80",
   },
 ];
 
 export const educationInfo: EducationType[] = [
   {
-    schoolName: "University of Central Punjab",
-    subHeader: "Bachelor of Science in Computer Science",
-    duration: "September 2017 - April 2020",
-    desc: "",
-    grade: "Grade A",
-    descBullets: [], // Array of Strings
+    schoolName: "Federal University of Technology Minna (FUTMinna)",
+    subHeader: "Bachelor of Science in Mathematics",
+    duration: "2016 - 2021",
+    desc: "Studied Mathematics at one of Nigeria's leading federal universities of technology, building strong analytical and problem-solving skills applied across software development.",
+    grade: "",
+    descBullets: [],
+  },
+  {
+    schoolName: "Udemy",
+    subHeader: "Full Stack Web Development Bootcamp",
+    duration: "Online",
+    desc: "Completed comprehensive training in modern web development.",
+    descBullets: [
+      "JavaScript & TypeScript fundamentals to advanced",
+      "React.js & Next.js for frontend development",
+      "Node.js & REST API development",
+    ],
+  },
+  {
+    schoolName: "freeCodeCamp",
+    subHeader: "Responsive Web Design & JavaScript Algorithms",
+    duration: "Online",
+    desc: "Earned certifications in web design and JavaScript programming.",
+    descBullets: [
+      "Responsive Web Design certification",
+      "JavaScript Algorithms and Data Structures",
+    ],
+  },
+  {
+    schoolName: "Coursera / Meta",
+    subHeader: "React Native — Mobile App Development",
+    duration: "Online",
+    desc: "Completed professional training in cross-platform mobile development for Android and iOS using React Native.",
+    descBullets: [],
+  },
+  {
+    schoolName: "Buildspace / CryptoZombies",
+    subHeader: "Blockchain & Smart Contract Development",
+    duration: "Online",
+    desc: "Trained in Solidity, Ethereum smart contracts, and decentralized application (dApp) development.",
+    descBullets: [
+      "Smart contract development with Solidity",
+      "Building and deploying dApps on Ethereum",
+      "Web3.js & wallet integrations",
+    ],
   },
 ];
 
 export const experience: ExperienceType[] = [
   {
-    role: "Django Developer",
-    company: "Meganos Software",
-    companyLogo: "/img/icons/common/meganos.png",
-    date: "Aug 2022 - Present",
-    desc: "I crafted backends for diverse web apps, APIs, and WebSockets in e-commerce, podcasts, and property management. Managed server upkeep, deployments on Linux, Heroku, and AWS S3. Implemented PyTest for automated unit and integration testing, slashing 4 hours of manual testing each sprint, fortifying a dependable and flawless code foundation.",
+    role: "CEO & Lead Developer",
+    company: "Iconedge Technologies LTD",
+    companyLogo: "/img/icons/common/photo_2026-03-26_15-19-18.jpg",
+    date: "Present",
+    desc: "Founder and CEO of Iconedge Technologies LTD, a technology company based in Abuja, Nigeria. Leading the company's technical direction, building software products, and delivering web, mobile, and blockchain solutions for clients across various industries.",
   },
   {
     role: "Full Stack Developer",
-    company: "Duseca Software",
-    companyLogo: "/img/icons/common/duseca_software_logo.jpeg",
-    date: "Jan 2022 - Sept 2023",
-    desc: "Crafted robust mobile application backends employing Django, Python, and REST APIs. Leveraged Django REST Framework, PostgreSQL, AWS, Firebase, Stripe, and WebSocket for efficient development. Collaborated across teams to surpass client expectations. Designed intuitive UIs, empowering clients to effortlessly manage their applications with a visually captivating interface.",
-    // descBullets: [
-    // 	"Lorem ipsum dolor sit amet, consdfgectetur adipiscing elit",
-    // 	"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    // ],
+    company: "EquiVault",
+    companyLogo: "/img/icons/common/equi.jpg",
+    date: "Feb 2026 - Present",
+    desc: "Working remotely with a Dubai-based company as a Full Stack Developer, building and maintaining scalable web applications. Responsible for frontend development with React.js and TypeScript, backend API development, and delivering robust features across the full stack.",
+  },
+  {
+    role: "Full Stack Blockchain Developer",
+    company: "CribMarket Maricius Limited",
+    companyLogo: "/img/icons/common/OIP.webp",
+    date: "2025 - Present",
+    desc: "Developed full stack web applications with blockchain integration for CribMarket Maricius Limited. Built smart contracts, dApp interfaces, and REST APIs, delivering end-to-end solutions across frontend, backend, and blockchain layers.",
   },
   {
     role: "Full Stack Developer",
-    company: "ZRTechnologies",
-    companyLogo: "/img/icons/common/zrtech.jpeg",
-    date: "Aug 2022 - Jun 2023",
-    desc: "Crafting diverse web applications, I've elevated functionality and user engagement. Spearheaded Visual Portfolio, leveraging AI for captivating presentations from parsed text. Proficiently set up and optimized applications on Linux servers, guaranteeing smooth scalability and top-notch performance for seamless user experiences.",
-  },
-  {
-    role: "Backend Developer",
-    company: "Bleed-AI",
-    companyLogo: "/img/icons/common/bleedAI.jpg",
-    date: "Sept 2021 - Oct 2021",
-    desc: "As a Django developer at Bleed AI, I integrated a computer vision AI model to process YouTube URLs on a website. I used Django Channels and Websockets to show real-time processing and implemented threading to run multiple instances of the AI model. I also used jQuery for UI rendering and deployed the website on a Heroku server.",
+    company: "Freelance",
+    companyLogo: "/img/icons/common/github.svg",
+    date: "2022 - 2023",
+    desc: "Designed and developed full stack web and mobile applications for multiple clients using React.js, React Native, TypeScript, and Node.js. Built and integrated REST APIs, delivered cross-platform Android and iOS apps, and implemented blockchain features including smart contracts and dApp interfaces.",
   },
 ];
 
 export const projects: ProjectType[] = [
   {
-    name: "developer-portfolio",
-    desc: "Software Developer Portfolio Template built with react.js and next.js bootstrap that helps you showcase your work and skills as a software developer.",
-    github: "https://github.com/1hanzla100/developer-portfolio",
-    link: "https://developer-portfolio-1hanzla100.vercel.app/",
+    name: "Eatumy Shareholders Admin Panel",
+    desc: "A secure admin dashboard built for Eatumy shareholders to manage operations, monitor data, and control platform settings. Access is restricted to authorized users only.",
+    link: "https://admin.eatumy.com/",
+    image: "/img/adm.jpeg",
   },
   {
-    name: "Giebo",
-    desc: "A Podcast Platform where creators can easily publish and sell their podcasts, and users can purchase with Handcash BitcoinSV, the future of fast and secure transactions.",
-    link: "https://gibeo.io/",
+    name: "DexNew Token Tracker (Telegram Bot)",
+    desc: "A Python-powered Telegram channel that scrapes and tracks new token listings in real time using the DexScreener API. Delivers instant alerts on new crypto token activity.",
+    link: "https://t.me/Dexnewtoken",
+    image: "/img/Capture.PNG",
   },
   {
-    name: "O Mejor Oferta",
-    desc: "O Mejor Oferta is a mobile marketplace for buying and selling items nearby, helping users find deals on things they want and make money from items they no longer need.",
-    link: "https://play.google.com/store/apps/details?id=com.duseca.mejor_oferta",
+    name: "Just Keep Gambling",
+    desc: "A full website built for a crypto gambling project, featuring a modern UI, wallet integrations, and an engaging user experience for the Web3 gaming community.",
+    link: "https://justkeepgambling.site/",
+    image: "/img/just-keep-gambling-web.PNG",
   },
   {
-    name: "Hooligan Culture",
-    desc: "A Ecommerce Platform, where shopping meets the future! With HandCash BitcoinSV integration, you can authenticate and purchase products with ease and confidence.",
-    link: "https://hooliganculture.com/",
-  },
-];
-
-export const feedbacks: FeedbackType[] = [
-  {
-    name: "Syed Jamal",
-    role: "Frontend Developer at Meganos Software",
-    feedback:
-      "You were a wonderful addition to our team, alhumdulillah. I'm quite impressed with your abilities and professional practices. You approach problems from a unique perspective and always ask the right question. Finding a good teammate like Hanzla is extremely difficult. He has contributed to the growth of our organization and continues to do so. May Allah bless you with everything you desire.",
+    name: "Pulse Alerts Buy Bot",
+    desc: "A Telegram crypto buy alert bot and group management bot that notifies communities of real-time token purchases. Built with Python and blockchain event listeners. (Coming soon)",
+    link: "https://t.me/Pulse_AlertsBuyBot",
+    image: "/img/pulsebuybot.jpg",
   },
   {
-    name: "Wajahat Malek",
-    role: "CEO at Duseca Software",
-    feedback:
-      "Hanzla has a deep understanding of web development technologies and is adept at using them to build scalable, robust, and secure web applications. He has worked on various projects, ranging from small-scale to large-scale, and has shown his ability to work collaboratively with others while maintaining a high level of productivity and quality. Hanzla is a pleasure to work with, and I have no doubt that he will be an asset to any team or organization. I highly recommend Hanzla for any Full Stack Django, React.js, or Blockchain development projects, and I wish him all the best in his future endeavors.",
-  },
-  {
-    name: "Zaid Zaffar",
-    role: "CEO at ZR Technologies",
-    feedback:
-      "Very skilled at what he does and has an in depth knowledge of Django and he's always ready to handle any challenges thrown at him. He's been a valuable member of my team and i look forward to working with him in the years to come",
+    name: "C-Sons Global Enterprises",
+    desc: "A business website for a Nigerian logistics and supply company offering transportation, medical equipment, computers, and office supplies with 24/7 customer support.",
+    link: "https://c-sonsglobalenterprises.org/",
+    image: "/img/c-and-son.PNG",
   },
 ];
 
 // See object prototype on /types/section.ts page
 export const seoData: SEODataType = {
-  title: "Hanzla Tauqeer",
+  title: "Michael Adeshina Martins",
   description: greetings.description,
-  author: "Hanzla Tauqeer",
-  image: "https://avatars.githubusercontent.com/u/59178380?v=4",
-  url: "https://developer-portfolio-1hanzla100.vercel.app",
+  author: "Michael Adeshina Martins",
+  image: "/img/my-picture-r.png",
+  url: "https://owenwebde.vercel.app",
   keywords: [
-    "Hanzla",
-    "Hanzla Tauqeer",
-    "@1hanzla100",
-    "1hanzla100",
+    "Michael",
+    "Michael Martins",
+    "Michael Adeshina Martins",
     "Portfolio",
-    "Hanzla Portfolio ",
-    "Hanzla Tauqeer Portfolio",
+    "Michael Martins Portfolio",
+    "Backend Developer",
+    "Frontend Developer",
+    "Blockchain Developer",
+    "React Native Developer",
   ],
 };

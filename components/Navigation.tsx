@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { greetings, socialLinks } from "../portfolio";
 import Headroom from "headroom.js";
+import Image from "next/image";
 import { UncontrolledCollapse, NavbarBrand, Navbar, NavItem, NavLink, Nav, Container, Row, Col } from "reactstrap";
 
 const Navigation = () => {
@@ -20,8 +21,15 @@ const Navigation = () => {
       <header className="header-global">
         <Navbar className="navbar-main navbar-transparent navbar-light headroom" expand="lg" id="navbar-main">
           <Container>
-            <NavbarBrand href="/" className="mr-lg-5">
-              <h2 className="text-white" id="nav-title">
+            <NavbarBrand href="/" className="mr-lg-5" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <Image
+                src="/img/icons/common/photo_2026-03-26_15-19-18.jpg"
+                alt="Iconedge Technologies"
+                width={40}
+                height={40}
+                style={{ borderRadius: "50%", objectFit: "cover" }}
+              />
+              <h2 className="text-white mb-0" id="nav-title" style={{ fontSize: "clamp(0.75rem, 2.5vw, 1.1rem)", whiteSpace: "nowrap" }}>
                 {greetings.name}
               </h2>
             </NavbarBrand>
