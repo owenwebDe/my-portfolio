@@ -38,19 +38,55 @@ section:nth-child(even) {
 }
 
 /* ── Navbar ───────────────────────────────────────────────── */
-.navbar-main {
+.navbar-main,
+.navbar-main.headroom,
+.navbar-main.headroom--pinned,
+.navbar-main.headroom--unpinned,
+.navbar-main.headroom--top,
+.navbar-main.headroom--not-top,
+.navbar-transparent,
+.navbar-light {
   background-color: #0A0E1A !important;
+  background: #0A0E1A !important;
   border-bottom: 1px solid #1E293B !important;
+  box-shadow: none !important;
 }
 
 .navbar-main .nav-link,
 .navbar-main .nav-link-icon,
-.navbar-main h2 {
+.navbar-main h2,
+.navbar-main h3,
+.navbar-main .navbar-brand,
+.navbar-main .navbar-toggler-icon {
   color: #F1F5F9 !important;
 }
 
-.navbar-main .nav-link:hover {
+.navbar-main .nav-link:hover,
+.navbar-main .nav-link-icon:hover {
   color: #6366F1 !important;
+}
+
+.navbar-main .navbar-toggler {
+  border-color: #6366F1 !important;
+}
+
+.navbar-collapse-header {
+  background: #0A0E1A !important;
+}
+
+/* mobile nav open background */
+.navbar-collapse {
+  background: #0A0E1A !important;
+}
+
+.collapse-brand h3,
+.collapse-brand h2 {
+  color: #F1F5F9 !important;
+}
+
+/* toggler X lines */
+.navbar-toggler span {
+  background: #F1F5F9 !important;
 }
 
 /* ── Hero / Greetings ─────────────────────────────────────── */

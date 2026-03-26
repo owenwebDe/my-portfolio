@@ -19,7 +19,7 @@ const Navigation = () => {
   return (
     <>
       <header className="header-global">
-        <Navbar className="navbar-main navbar-transparent navbar-light headroom" expand="lg" id="navbar-main">
+        <Navbar className="navbar-main headroom" expand="lg" id="navbar-main" style={{ background: "#0A0E1A", borderBottom: "1px solid #1E293B" }}>
           <Container>
             <NavbarBrand href="/" className="mr-lg-5" style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <Image
@@ -43,10 +43,10 @@ const Navigation = () => {
               onExiting={onExiting}
               onExited={onExited}
             >
-              <div className="navbar-collapse-header">
+              <div className="navbar-collapse-header" style={{ background: "#0A0E1A" }}>
                 <Row>
                   <Col className="collapse-brand" xs="6">
-                    <h3 className="text-black" id="nav-title">
+                    <h3 style={{ color: "#F1F5F9" }} id="nav-title">
                       {greetings.name}
                     </h3>
                   </Col>
