@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { greetings, socialLinks } from "../portfolio";
 
 const Navigation = () => {
@@ -37,7 +38,7 @@ const Navigation = () => {
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px" }}>
 
         {/* Brand */}
-        <a href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
+        <Link href="/" style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }}>
           <Image
             src="/img/icons/common/photo_2026-03-26_15-19-18.jpg"
             alt="Iconedge Technologies"
@@ -48,7 +49,7 @@ const Navigation = () => {
           <span style={{ color: "#F1F5F9", fontWeight: 700, fontSize: "clamp(0.85rem, 2vw, 1rem)", whiteSpace: "nowrap" }}>
             {greetings.name}
           </span>
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }} className="nav-desktop-links">
